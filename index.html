@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title>Simple Shadowbox</title>
+	<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+	<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+	<style type='text/css'>
+		.row-sm {
+			width: 400px;
+			margin:0 auto;
+		}
+
+		.btn-centered {
+			display:block;
+			width:61px;
+			margin:0 auto;
+		}
+		
+		.row-first {
+			margin-top:25px;
+		}
+		
+		.shadow-box {
+			background-color:#000;
+			
+			/* Theoretically for IE 8 & 9 (more valid) */
+			/* ...but not required as filter works too */
+			/* should come BEFORE filter */
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)"; // IE8
+
+			/* This works in IE 8 & 9 too */
+			/* ... but also 5, 6, 7 */
+			filter: alpha(opacity=20); // IE 5-7
+
+			/* Modern Browsers */
+			opacity: 0.2;
+		}
+	</style>
+	<script type='text/javascript'>
+		$(function(){
+			console.log('ready...');
+			$('.shadow-box').css('visibility', 'hidden');
+			$('#open-button').click(() => {
+				$('.shadow-box').css({
+					'visibility': 'visible',
+					'position': 'absolute',
+					'top': '0',
+					'left': '0',
+					'width': '100%',
+					'height': '100%'
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<div class='container'>
+		<div class='row row-sm row-first'>
+			<p>
+				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
+				doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
+				veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
+				ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+				consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque 
+				porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+				adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore 
+				et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis 
+				nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid 
+				ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea 
+				voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+				eum fugiat quo voluptas nulla pariatur?
+			</p>
+		</div>
+		
+		<div class='row row-sm'>
+			<button type='button' id='open-button'
+				class='btn btn-default btn-centered'>Open</button>
+		</div>
+	</div>
+
+	<div class='shadow-box'>
+		<div class='row row-sm shadow-content'>
+			<p>
+				At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis 
+				praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias 
+				excepturi sint occaecati cupiditate non provident, similique sunt in culpa 
+				qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et 
+				harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, 
+				cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod 
+				maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor 
+				repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum 
+				necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae 
+				non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut 
+				reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus 
+				asperiores repellat.
+			</p>
+		</div>
+	</div>
+</body>
+</html>
