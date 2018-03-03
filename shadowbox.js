@@ -2,9 +2,9 @@ const shadowContent = $('.shadow-content');
 
 
 
-function initialize() {
+function initialize(selector) {
     //attach click event
-    $('#open-button').click(() => {
+    $(selector).click(() => {
 
         //get shadow-content dimensions
         var height = $('.shadow-content').height();
