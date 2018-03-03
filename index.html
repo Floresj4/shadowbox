@@ -40,24 +40,34 @@
 
         .shadow-content {
             background-color: #fff;
-            -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-            filter: alpha(opacity=100);
-            opacity: 1.0;
+            width: 400px;
+            margin: 0 auto;
         }
 	</style>
 	<script type='text/javascript'>
 		$(function(){
 			console.log('ready...');
 			$('.shadow-box').css('visibility', 'hidden');
+            $('.shadow-content').css('visibility', 'hidden');
 
 			$('#open-button').click(() => {
 
                 //get shadow-content dimensions
                 var height = $('.shadow-content').height();
+                var width = $('.shadow-content').height();
+
                 var docHeight = $(document).height();
                 var marginTop = (docHeight - height) / 2;
+                var docWidth = $(document).width();
+                var marginLeft = (docWidth - width) / 2;
 
-                $('.shadow-content').css('margin-top', marginTop + 'px');
+                $('.shadow-content').css({
+                    'visibility': 'visible',
+                    'position': 'absolute',
+                    'top': marginTop + 'px',
+                    'left': marginLeft + 'px',
+                    'z-index': 10,
+                });
 
                 $('.shadow-box').css({
                     'visibility': 'visible',
@@ -98,22 +108,24 @@
 	</div>
 
 	<div class='shadow-box'>
-		<div class='row row-sm shadow-content'>
-			<p>
-				At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis 
-				praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias 
-				excepturi sint occaecati cupiditate non provident, similique sunt in culpa 
-				qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et 
-				harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, 
-				cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod 
-				maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor 
-				repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum 
-				necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae 
-				non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut 
-				reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus 
-				asperiores repellat.
-			</p>
-		</div>
+
 	</div>
+
+    <div class='row row-sm shadow-content'>
+        <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+            praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+            excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+            qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et
+            harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
+            cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+            maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
+            repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum
+            necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae
+            non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+            reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus
+            asperiores repellat.
+        </p>
+    </div>
 </body>
 </html>
