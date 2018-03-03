@@ -21,20 +21,29 @@
 		}
 		
 		.shadow-box {
+            z-index: 10;
+
 			background-color:#000;
-			
+
 			/* Theoretically for IE 8 & 9 (more valid) */
 			/* ...but not required as filter works too */
 			/* should come BEFORE filter */
-			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)"; // IE8
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
 
 			/* This works in IE 8 & 9 too */
 			/* ... but also 5, 6, 7 */
-			filter: alpha(opacity=20); // IE 5-7
+			filter: alpha(opacity=70);
 
 			/* Modern Browsers */
-			opacity: 0.2;
+			opacity: 0.7;
 		}
+
+        .shadow-content {
+            background-color: #fff;
+            -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1.0;
+        }
 	</style>
 	<script type='text/javascript'>
 		$(function(){
