@@ -40,15 +40,24 @@
 		$(function(){
 			console.log('ready...');
 			$('.shadow-box').css('visibility', 'hidden');
+
 			$('#open-button').click(() => {
-				$('.shadow-box').css({
-					'visibility': 'visible',
-					'position': 'absolute',
-					'top': '0',
-					'left': '0',
-					'width': '100%',
-					'height': '100%'
-				});
+
+                //get shadow-content dimensions
+                var height = $('.shadow-content').height();
+                var docHeight = $(document).height();
+                var marginTop = (docHeight - height) / 2;
+
+                $('.shadow-content').css('margin-top', marginTop + 'px');
+
+                $('.shadow-box').css({
+                    'visibility': 'visible',
+                    'position': 'absolute',
+                    'top': '0',
+                    'left': '0',
+                    'width': '100%',
+                    'height': '100%'
+                });
 			});
 		});
 	</script>
