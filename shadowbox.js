@@ -7,7 +7,7 @@ $(function(){
 
         //get shadow-content dimensions
         var height = $('.shadow-content').height();
-        var width = $('.shadow-content').height();
+        var width = $('.shadow-content').width();
 
         var docHeight = $(document).height();
         var marginTop = (docHeight - height) / 2;
