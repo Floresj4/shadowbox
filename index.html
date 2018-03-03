@@ -4,81 +4,9 @@
 	<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 	<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-	<style type='text/css'>
-		.row-sm {
-			width: 400px;
-			margin:0 auto;
-		}
-
-		.btn-centered {
-			display:block;
-			width:61px;
-			margin:0 auto;
-		}
-		
-		.row-first {
-			margin-top:25px;
-		}
-		
-		.shadow-box {
-            z-index: 10;
-
-			background-color:#000;
-
-			/* Theoretically for IE 8 & 9 (more valid) */
-			/* ...but not required as filter works too */
-			/* should come BEFORE filter */
-			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-
-			/* This works in IE 8 & 9 too */
-			/* ... but also 5, 6, 7 */
-			filter: alpha(opacity=70);
-
-			/* Modern Browsers */
-			opacity: 0.7;
-		}
-
-        .shadow-content {
-            background-color: #fff;
-            width: 400px;
-            margin: 0 auto;
-        }
-	</style>
-	<script type='text/javascript'>
-		$(function(){
-			console.log('ready...');
-			$('.shadow-box').css('visibility', 'hidden');
-            $('.shadow-content').css('visibility', 'hidden');
-
-			$('#open-button').click(() => {
-
-                //get shadow-content dimensions
-                var height = $('.shadow-content').height();
-                var width = $('.shadow-content').height();
-
-                var docHeight = $(document).height();
-                var marginTop = (docHeight - height) / 2;
-                var docWidth = $(document).width();
-                var marginLeft = (docWidth - width) / 2;
-
-                $('.shadow-content').css({
-                    'visibility': 'visible',
-                    'position': 'absolute',
-                    'top': marginTop + 'px',
-                    'left': marginLeft + 'px',
-                    'z-index': 10,
-                });
-
-                $('.shadow-box').css({
-                    'visibility': 'visible',
-                    'position': 'absolute',
-                    'top': '0',
-                    'left': '0',
-                    'width': '100%',
-                    'height': '100%'
-                });
-			});
-		});
+	<link rel="stylesheet" type="text/css" href="shadowbox.css" />
+	<link rel="stylesheet" type="text/css" href="site.css" />
+	<script type='text/javascript' src="./shadowbox.js">
 	</script>
 </head>
 <body>
