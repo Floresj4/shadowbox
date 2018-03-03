@@ -1,0 +1,14 @@
+.row-sm {
+    width: 400px;
+    margin:0 auto;
+}
+
+.btn-centered {
+    display:block;
+    width:61px;
+    margin:0 auto;
+}
+
+.row-first {
+    margin-top:25px;
+}
