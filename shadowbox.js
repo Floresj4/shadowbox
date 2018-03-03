@@ -1,8 +1,9 @@
-$(function(){
-    console.log('ready...');
-    $('.shadow-box').css('visibility', 'hidden');
-    $('.shadow-content').css('visibility', 'hidden');
+const shadowContent = $('.shadow-content');
 
+
+
+function initialize() {
+    //attach click event
     $('#open-button').click(() => {
 
         //get shadow-content dimensions
@@ -31,4 +32,4 @@ $(function(){
             'height': '100%'
         });
     });
-});
+}
