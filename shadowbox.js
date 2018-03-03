@@ -1,8 +1,6 @@
 const shadowContent = $('.shadow-content');
 
-
-
-function initialize(selector) {
+function shadow(selector) {
     //attach click event
     $(selector).click(() => {
 
