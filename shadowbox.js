@@ -1,33 +1,40 @@
-const shadowContent = $('.shadow-content');
+var $shadowContent;
+var $shadowBox;
+var $shadowCloseBtn;
 
-function shadow(selector) {
+var closeBtnHTML = "<button type='button' class='btn btn-danger btn-shadow-close'>Close</button>";
+
+function shadowbox(selector) {
+
+    //initialize selectors
+    $shadowContent = $('.shadow-content');
+    $shadowBox = $('.shadow-box');
+    $shadowCloseBtn = $('.btn-shadow-close');
+
     //attach click event
     $(selector).click(() => {
 
+        $shadowContent.append(closeBtnHTML);
+
         //get shadow-content dimensions
-        var height = $('.shadow-content').height();
-        var width = $('.shadow-content').width();
-
+        var height = $shadowContent.height();
+        var width = $shadowContent.width();
+        var zIndex = 10;
         var docHeight = $(document).height();
-        var marginTop = (docHeight - height) / 2;
+        var margintop = (docHeight - height) / 2 + 'px';
         var docWidth = $(document).width();
-        var marginLeft = (docWidth - width) / 2;
+        var marginleft = (docWidth - width) / 2 + 'px';
 
-        $('.shadow-content').css({
-            'visibility': 'visible',
-            'position': 'absolute',
-            'top': marginTop + 'px',
-            'left': marginLeft + 'px',
-            'z-index': 10,
-        });
+        $shadowBox.show();
+        $shadowContent.css({
+            'top': margintop,
+            'left': marginleft ,
+            'z-index': zIndex,
+        }).show();
 
-        $('.shadow-box').css({
-            'visibility': 'visible',
-            'position': 'absolute',
-            'top': '0',
-            'left': '0',
-            'width': '100%',
-            'height': '100%'
+        $('body').on('click', '.btn-shadow-close', () => {
+            $shadowBox.hide();
+            $shadowContent.hide();
         });
     });
 }
