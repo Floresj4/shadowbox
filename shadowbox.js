@@ -34,7 +34,7 @@ function shadowbox(selector) {
             'z-index': zIndex,
         }).show();
 
-        $('body').on('click', '.btn-shadow-close', () => {
+        $('body').on('click', '.shadow-content > .btn-shadow-close', () => {
             $shadowBox.hide();
             $shadowContent.hide();
         });
