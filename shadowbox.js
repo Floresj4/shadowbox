@@ -3,6 +3,7 @@ var $shadowBox;
 var $shadowCloseBtn;
 
 var closeBtnHTML = "<button type='button' class='btn btn-danger btn-shadow-close'>Close</button>";
+var shadowBoxHtml = "<div class='shadow-box'></div>";
 
 function shadowbox(selector) {
 
@@ -14,6 +15,10 @@ function shadowbox(selector) {
     //attach click event
     $(selector).click(() => {
 
+        //append shadowbox container
+        $('body').append(shadowBoxHtml);
+
+        //make sure to not add duplicates
         if($(".shadow-content > .btn-shadow-close").length == 0) {
             $shadowContent.append(closeBtnHTML);
         }
@@ -27,16 +32,18 @@ function shadowbox(selector) {
         var docWidth = $(document).width();
         var marginleft = (docWidth - width) / 2 + 'px';
 
-        $shadowBox.show();
+        // $shadowBox.show();
         $shadowContent.css({
             'top': margintop,
             'left': marginleft ,
             'z-index': zIndex,
         }).show();
 
+        //attach dynamic click event
         $('body').on('click', '.shadow-content > .btn-shadow-close', () => {
             $shadowBox.hide();
             $shadowContent.hide();
+            $('body > .shadow-box').remove();
         });
     });
 }
