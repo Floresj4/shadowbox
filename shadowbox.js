@@ -32,7 +32,6 @@ function shadowbox(selector) {
         var docWidth = $(document).width();
         var marginleft = (docWidth - width) / 2 + 'px';
 
-        // $shadowBox.show();
         $shadowContent.css({
             'top': margintop,
             'left': marginleft ,

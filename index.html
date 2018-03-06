@@ -9,7 +9,7 @@
 	<script type='text/javascript' src="./shadowbox.js"></script>
 	<script type='text/javascript'>
         $(function(){
-            shadowbox('#open-button');
+            shadowbox('.open-button');
         });
 	</script>
 </head>
@@ -17,25 +17,32 @@
 
 	<div class='container'>
 		<div class='row row-sm row-first'>
+			<h3>shadowbox.js</h3>
 			<p>
-				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-				doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
-				veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
-				ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
-				consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque 
-				porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-				adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore 
-				et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis 
-				nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid 
-				ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea 
-				voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
-				eum fugiat quo voluptas nulla pariatur?
+				A Javascript library providing simple shadow boxing functionality.  shadowbox.js requires
+				jquery and a valid selector &ndash; the content to be shadowed should exist on the page
+				with a default css display value of none.
 			</p>
 		</div>
-		
+
+		<div class="row row-sm">
+			<h4>Usage</h4>
+			<pre><code>
+&lt;link rel='stylesheet' type='text/css' href='shadowbox.css' /&gt;
+&lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"&gt;&lt;/script&gt;
+&lt;script type='text/javascript' src="./shadowbox.js"&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+$(function(){
+	shadowbox('.open-button');
+});
+&lt;/script&gt;
+			</code></pre>
+		</div>
+
 		<div class='row row-sm'>
-			<button type='button' id='open-button'
-				class='btn btn-default btn-centered'>Open</button>
+			<button type='button'
+					id='open-button'
+					class='btn btn-default btn-centered open-button'>Click me</button>
 		</div>
 	</div>
 

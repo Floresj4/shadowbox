@@ -1,14 +1,21 @@
+body {
+    font-size:12px;
+}
+
 .row-sm {
     width: 400px;
     margin:0 auto;
 }
 
 .btn-centered {
-    display:block;
-    width:61px;
+    display: block;
     margin:0 auto;
 }
 
 .row-first {
-    margin-top:25px;
+    margin-top: 25px;
+}
+
+pre code {
+    font-size:10px;
 }
