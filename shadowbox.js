@@ -14,7 +14,9 @@ function shadowbox(selector) {
     //attach click event
     $(selector).click(() => {
 
-        $shadowContent.append(closeBtnHTML);
+        if($(".shadow-content > .btn-shadow-close").length == 0) {
+            $shadowContent.append(closeBtnHTML);
+        }
 
         //get shadow-content dimensions
         var height = $shadowContent.height();
