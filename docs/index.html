@@ -9,7 +9,10 @@
 	<script type='text/javascript' src="../shadowbox.js"></script>
 	<script type='text/javascript'>
         $(function(){
-            shadowbox('.open-button');
+            shadowbox({
+				click: '.open-button',
+				display: '.shadow-content'
+            });
         });
 	</script>
 </head>

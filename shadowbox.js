@@ -5,15 +5,15 @@ var $shadowCloseBtn;
 var closeBtnHTML = "<button type='button' class='btn btn-danger btn-shadow-close'>Close</button>";
 var shadowBoxHtml = "<div class='shadow-box'></div>";
 
-function shadowbox(selector) {
+function shadowbox(properties) {
 
     //initialize selectors
-    $shadowContent = $('.shadow-content');
+    $shadowContent = $(properties.display);
     $shadowBox = $('.shadow-box');
     $shadowCloseBtn = $('.btn-shadow-close');
 
     //attach click event
-    $(selector).click(() => {
+    $(properties.click).click(() => {
 
         //append shadowbox container
         $('body').append(shadowBoxHtml);
