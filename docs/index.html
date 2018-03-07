@@ -36,7 +36,10 @@
 &lt;script type='text/javascript' src="./shadowbox.js"&gt;&lt;/script&gt;
 &lt;script type='text/javascript'&gt;
 $(function(){
-	shadowbox('.open-button');
+	shadowbox({
+		click: '.open-button',
+		display: '.shadow-content'
+	});
 });
 &lt;/script&gt;
 			</code></pre>
