@@ -19,7 +19,7 @@ function shadowbox(properties) {
         $('body').append(shadowBoxHtml);
 
         //make sure to not add duplicates
-        if($(".shadow-content > .btn-shadow-close").length == 0) {
+        if($(properties.display + " > .btn-shadow-close").length == 0) {
             $shadowContent.append(closeBtnHTML);
         }
 
@@ -39,7 +39,7 @@ function shadowbox(properties) {
         }).show();
 
         //attach dynamic click event
-        $('body').on('click', '.shadow-content > .btn-shadow-close', () => {
+        $('body').on('click', properties.display + ' > .btn-shadow-close', () => {
             $shadowBox.hide();
             $shadowContent.hide();
             $('body > .shadow-box').remove();
