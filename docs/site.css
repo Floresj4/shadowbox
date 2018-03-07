@@ -19,3 +19,9 @@ body {
 pre code {
     font-size:10px;
 }
+
+.shadow-content {
+    background-color: #fff;
+    padding: 5px;
+    width: 400px;
+}
