@@ -21,6 +21,8 @@ pre code {
 }
 
 .shadow-content {
+    display: none;
+    position: absolute;
     background-color: #fff;
     padding: 5px;
     width: 400px;

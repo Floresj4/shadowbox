@@ -12,6 +12,8 @@ function shadowbox(properties) {
     $shadowBox = $('.shadow-box');
     $shadowCloseBtn = $('.btn-shadow-close');
 
+    $shadowBox.css(overlay());
+
     //attach click event
     $(properties.click).click(() => {
 
@@ -25,8 +27,10 @@ function shadowbox(properties) {
 
         //get shadow-content dimensions
         var zIndex = 10;
-        let css = Object.assign(getSelectorPosition(properties.display),
-            { 'z-index': zIndex });
+        let css = Object.assign(
+            position(properties.display),
+            { 'z-index': zIndex }
+        );
 
         $shadowContent.css(css).show();
 
@@ -37,14 +41,28 @@ function shadowbox(properties) {
             $('body > .shadow-box').remove();
         });
 
-        let data = 'data';
         $(window).resize(()=> {
-            $shadowContent.css(getSelectorPosition(properties.display));
+            $shadowContent.css(position(properties.display));
         });
     });
 }
 
-function getSelectorPosition(selector) {
+function overlay() {
+    return overlay = {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        'z-index': 5,
+        'background-color': '#000',
+        '-ms-filter':"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+        filter: 'alpha(opacity=70)',
+        opacity: 0.7
+    };
+}
+
+function position(selector) {
     return css = {
         'top': ($(document).height() - $(selector).height()) / 2 + 'px',
         'left': ($(document).width() - $(selector).width()) / 2 + 'px'
