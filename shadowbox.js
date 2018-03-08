@@ -24,19 +24,11 @@ function shadowbox(properties) {
         }
 
         //get shadow-content dimensions
-        var height = $shadowContent.height();
-        var width = $shadowContent.width();
         var zIndex = 10;
-        var docHeight = $(document).height();
-        var margintop = (docHeight - height) / 2 + 'px';
-        var docWidth = $(document).width();
-        var marginleft = (docWidth - width) / 2 + 'px';
+        let css = Object.assign(getSelectorPosition(properties.display),
+            { 'z-index': zIndex });
 
-        $shadowContent.css({
-            'top': margintop,
-            'left': marginleft ,
-            'z-index': zIndex,
-        }).show();
+        $shadowContent.css(css).show();
 
         //attach dynamic click event
         $('body').on('click', properties.display + ' > .btn-shadow-close', () => {
@@ -44,5 +36,17 @@ function shadowbox(properties) {
             $shadowContent.hide();
             $('body > .shadow-box').remove();
         });
+
+        let data = 'data';
+        $(window).resize(()=> {
+            $shadowContent.css(getSelectorPosition(properties.display));
+        });
     });
+}
+
+function getSelectorPosition(selector) {
+    return css = {
+        'top': ($(document).height() - $(selector).height()) / 2 + 'px',
+        'left': ($(document).width() - $(selector).width()) / 2 + 'px'
+    }
 }
