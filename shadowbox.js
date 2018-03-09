@@ -5,24 +5,42 @@ var $shadowCloseBtn;
 var closeBtnHTML = "<button type='button' class='btn btn-danger btn-shadow-close'>Close</button>";
 var shadowBoxHtml = "<div class='shadow-box'></div>";
 
-function overlay() {
-    return overlay = {
+function overlay(properties) {
+    console.log(properties);
+
+    var customizable;
+    if(properties !== undefined) {
+        console.log('about to set properties from user');
+        let opacity = properties.hasOwnProperty('opacity') ? properties.opacity : .7
+        customizable = {
+            'z-index': 5,
+            'background-color': '#000',
+            '-ms-filter': "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)",
+            filter: 'alpha(opacity=70)',
+            opacity: opacity
+        }
+    } else {
+        console.log('using default properties');
+        customizable = {
+            'z-index': 5,
+            'background-color': '#000',
+            '-ms-filter':"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)",
+            filter: 'alpha(opacity=70)',
+            opacity: 0.7
+        }
+    }
+
+    return Object.assign(customizable, {
         display: 'none',
         position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
-        'z-index': 5,
-        'background-color': '#000',
-        '-ms-filter':"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)",
-        filter: 'alpha(opacity=70)',
-        opacity: 0.7
-    };
+        height: '100%'
+    });
 }
 
 function shadowbox(properties) {
-
     //append shadowbox container
     $('body').append(shadowBoxHtml);
 
@@ -31,7 +49,7 @@ function shadowbox(properties) {
     $shadowBox = $('.shadow-box');
     $shadowCloseBtn = $('.btn-shadow-close');
 
-    let overlayCss = overlay();
+    let overlayCss = overlay(properties);
     $shadowBox.css(overlayCss);
 
     //attach click event
