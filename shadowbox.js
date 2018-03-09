@@ -11,12 +11,14 @@ function overlay(properties) {
     var customizable;
     if(properties !== undefined) {
         console.log('about to set properties from user');
-        let opacity = properties.hasOwnProperty('opacity') ? properties.opacity : .7
+        let opacity = properties.hasOwnProperty('opacity') ? properties.opacity : .7;
+        let backgroundColor = properties.hasOwnProperty('background') ? properties['background'] : '#000';
+        let zIndex = properties.hasOwnProperty('z-index') ? properties['z-index'] : 5;
         customizable = {
-            'z-index': 5,
-            'background-color': '#000',
-            '-ms-filter': "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)",
-            filter: 'alpha(opacity=70)',
+            'z-index': zIndex,
+            'background': backgroundColor,
+            '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity +')',
+            filter: 'alpha(opacity=' + opacity +')',
             opacity: opacity
         }
     } else {
