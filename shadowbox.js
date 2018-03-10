@@ -5,41 +5,32 @@ var $shadowCloseBtn;
 var closeBtnHTML = "<button type='button' class='btn btn-danger btn-shadow-close'>Close</button>";
 var shadowBoxHtml = "<div class='shadow-box'></div>";
 
+function getOrDefault(properties, propertyToFind, defaultValue) {
+    return (properties !== undefined)
+        ? (properties.hasOwnProperty(propertyToFind)
+            ? properties[propertyToFind] : defaultValue)
+                : defaultValue;
+}
+
 function overlay(properties) {
-    console.log(properties);
+    let background = getOrDefault(properties, 'background', '#000');
+    let zIndex = getOrDefault(properties, 'z-index', 5);
+    let opacity = getOrDefault(properties, 'opacity', .7);
+    let msOpacity = (opacity * 100);
 
-    var customizable;
-    if(properties !== undefined) {
-        console.log('about to set properties from user');
-        let opacity = properties.hasOwnProperty('opacity') ? properties.opacity : .7;
-        let backgroundColor = properties.hasOwnProperty('background') ? properties['background'] : '#000';
-        let zIndex = properties.hasOwnProperty('z-index') ? properties['z-index'] : 5;
-        customizable = {
-            'z-index': zIndex,
-            'background': backgroundColor,
-            '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity +')',
-            filter: 'alpha(opacity=' + opacity +')',
-            opacity: opacity
-        }
-    } else {
-        console.log('using default properties');
-        customizable = {
-            'z-index': 5,
-            'background-color': '#000',
-            '-ms-filter':"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)",
-            filter: 'alpha(opacity=70)',
-            opacity: 0.7
-        }
-    }
-
-    return Object.assign(customizable, {
+    return {
+        '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + msOpacity +')',
+        filter: 'alpha(opacity=' + msOpacity +')',
+        'z-index': zIndex,
+        'background': background,
+        opacity: opacity,
         display: 'none',
         position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',
         height: '100%'
-    });
+    };
 }
 
 function shadowbox(properties) {
