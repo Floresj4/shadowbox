@@ -1,6 +1,6 @@
 .idea
 
 #local test files, github pages
-index.html
-site.css
-tile.png
+/index.html
+/site.css
+/tile.png
