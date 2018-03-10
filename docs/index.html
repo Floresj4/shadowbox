@@ -20,18 +20,22 @@
 <body>
 
 	<div class='container'>
-		<div class='row row-sm row-first'>
-			<h3>shadowbox.js</h3>
-			<p>
-				A Javascript library providing simple shadow boxing functionality.  shadowbox.js requires
-				jquery and a valid selector &ndash; the content to be shadowed should exist on the page
-				with a default css display value of none.
-			</p>
+
+		<div class="row">
+			<div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2'>
+				<h3>shadowbox.js</h3>
+				<p>
+					A Javascript library providing simple shadow boxing functionality.  shadowbox.js requires
+					jquery and a valid selector &ndash; the content to be shadowed should exist on the page
+					with a default css display value of none.
+				</p>
+			</div>
 		</div>
 
-		<div class="row row-sm">
-			<h4>Usage</h4>
-			<pre><code>
+		<div class="row">
+			<div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2'>
+				<h4>Usage</h4>
+				<pre><code>
 &lt;link rel='stylesheet' type='text/css' href='shadowbox.css' /&gt;
 &lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"&gt;&lt;/script&gt;
 &lt;script type='text/javascript' src="./shadowbox.js"&gt;&lt;/script&gt;
@@ -43,14 +47,18 @@ $(function(){
 	});
 });
 &lt;/script&gt;
-			</code></pre>
+				</code></pre>
+			</div>
 		</div>
 
-		<div class='row row-sm'>
-			<button type='button'
+		<div class='row'>
+			<div class="col-xs-10 col-xs-offset-1">
+				<button type='button'
 					id='open-button'
 					class='btn btn-default btn-centered open-button'>Click me</button>
+			</div>
 		</div>
+
 	</div>
 
     <div class='shadow-content'>
@@ -69,5 +77,6 @@ $(function(){
             asperiores repellat.
         </p>
     </div>
+
 </body>
 </html>
