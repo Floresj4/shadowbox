@@ -23,6 +23,9 @@ pre code {
 .shadow-content {
     display: none;
     position: absolute;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     background-color: #fff;
     padding: 5px;
     width: 400px;
