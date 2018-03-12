@@ -1,7 +1,7 @@
 {
-  "name": "shadowbox",
+  "name": "shadowbox-jf",
   "version": "1.0.0",
-  "description": "simple shadowbox project",
+  "description": "a simple shadowbox project",
   "main": "shadowbox.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
