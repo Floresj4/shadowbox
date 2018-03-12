@@ -12,30 +12,22 @@ function getOrDefault(properties, propertyToFind, defaultValue) {
                 : defaultValue;
 }
 
-function overlay(properties) {
-    let background = getOrDefault(properties, 'background', '#000');
-    let zIndex = getOrDefault(properties, 'z-index', 5);
-    let opacity = getOrDefault(properties, 'opacity', .7);
-    let msOpacity = (opacity * 100);
+function collectShadowElements() {
+    let elements = [];
+    $("[shadowbox]").each((i, elem) => {
+        console.log(i + ': ' + $(elem).attr('shadowbox'));
+        elements.push(elem);
+    });
 
-    return {
-        '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + msOpacity +')',
-        filter: 'alpha(opacity=' + msOpacity +')',
-        'z-index': zIndex,
-        'background': background,
-        opacity: opacity,
-        display: 'none',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%'
-    };
+    return elements;
 }
-
 function shadowbox(properties) {
     //append shadowbox container
-    $('body').append(shadowBoxHtml);
+    if(!exists('shadow-box')) {
+        $('body').append(shadowBoxHtml);
+    }
+
+    var shadowElements = collectShadowElements();
 
     //initialize selectors
     $shadowContent = $(properties.display);
@@ -75,9 +67,34 @@ function shadowbox(properties) {
     });
 }
 
+function exists(selector) {
+    return $(selector).length == 0;
+}
+
 function position(selector) {
     return css = {
         'top': ($(document).height() - $(selector).height()) / 2 + 'px',
         'left': ($(document).width() - $(selector).width()) / 2 + 'px'
     }
+}
+
+function overlay(properties) {
+    let background = getOrDefault(properties, 'background', '#000');
+    let zIndex = getOrDefault(properties, 'z-index', 5);
+    let opacity = getOrDefault(properties, 'opacity', .7);
+    let msOpacity = (opacity * 100);
+
+    return {
+        '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + msOpacity +')',
+        filter: 'alpha(opacity=' + msOpacity +')',
+        'z-index': zIndex,
+        'background': background,
+        opacity: opacity,
+        display: 'none',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%'
+    };
 }
