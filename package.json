@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Floresj4/shadowbox/issues"
   },
-  "homepage": "https://Floresj4.github.io/shadowbox"
+  "homepage": "https://Floresj4.github.io/shadowbox",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }
