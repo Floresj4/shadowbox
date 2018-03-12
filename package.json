@@ -2,7 +2,7 @@
   "name": "shadowbox",
   "version": "1.0.0",
   "description": "simple shadowbox project",
-  "main": "index.html",
+  "main": "shadowbox.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,9 +16,6 @@
   ],
   "author": "floresj4",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Floresj4/shadowbox/issues"
-  },
   "homepage": "https://Floresj4.github.io/shadowbox",
   "dependencies": {
     "jquery": "^3.3.1"
