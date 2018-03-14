@@ -32,5 +32,6 @@ pre code {
 }
 
 .teapot-container {
-    width:300px;
+    display: none;
+    width: 300px;
 }

@@ -3,11 +3,19 @@ var $shadowBox;
 var $shadowCloseBtn;
 
 var closeBtnHTML = "<button type='button' class='btn btn-danger btn-shadow-close'>Close</button>";
-var shadowOverlay = "<div class='shadow-overlay'></div>";
 
 var defaultcss = {
     display: 'none',
     position: 'absolute'
+};
+
+var overlaycss = {
+    display: 'none',
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0
 };
 
 function getOrDefault(properties, propertyToFind, defaultValue) {
@@ -18,23 +26,22 @@ function getOrDefault(properties, propertyToFind, defaultValue) {
 }
 
 function shadowbox(properties) {
-    //append shadowbox container
-    if(!exists('.shadow-overlay')) {
-        $('body').append(shadowOverlay);
-    }
+
+    $('body').append("<div class='shadow-overlay'></div>");
+    let shadow = $('.shadow-overlay');
+    shadow.css(overlaycss);
 
     $("[shadowbox]").each((i, elem) => {
         let clazz = '.' + $(elem).attr('shadowbox');
 
         $(elem).css(defaultcss).hide();
         $(clazz).on('click', () => {
+
+            shadow.toggle();
+
             $(elem).css(position(elem)).toggle();
         });
     });
-}
-
-function exists(selector) {
-    return $(selector).length != 0;
 }
 
 function position(selector) {
