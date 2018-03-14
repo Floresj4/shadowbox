@@ -42,3 +42,11 @@ pre code {
     color: #fff;
     padding: 10px;
 }
+
+.shadow-close {
+    font-weight: bolder;
+    font-size: 16px;
+    color: #000;
+    z-index: 25;
+    cursor: pointer;
+}
