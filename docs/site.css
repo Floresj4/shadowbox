@@ -20,12 +20,25 @@ pre code {
     font-size:10px;
 }
 
+.peekaboo-container,
 .teapot-container {
     display: none;
+}
+
+.teapot-container {
     width: 300px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     background-color: #fff;
     padding: 5px;
+}
+
+.peekaboo-container {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #08a;
+    color: #fff;
+    padding: 10px;
 }
