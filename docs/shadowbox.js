@@ -15,8 +15,12 @@ function getOrDefault(properties, propertyToFind, defaultValue) {
 function collectShadowElements() {
     let elements = [];
     $("[shadowbox]").each((i, elem) => {
-        console.log(i + ': ' + $(elem).attr('shadowbox'));
-        elements.push(elem);
+        let clazz = '.' + $(elem).attr('shadowbox');
+
+        $(elem).hide();
+        $(clazz).on('click', () => {
+            $(elem).toggle();
+        });
     });
 
     return elements;
