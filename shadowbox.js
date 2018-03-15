@@ -1,6 +1,8 @@
 
-var closeBtnHTML = "<button type='button' class='btn btn-danger btn-shadow-close'>Close</button>";
-
+var shadow;
+var active;
+var closeable;
+var offset = 15;
 var overlaycss;
 var defaultcss = {
     display: 'none',
@@ -16,17 +18,10 @@ var defaultoverlaycss = {
     left: 0
 };
 
-function getOrDefault(properties, propertyToFind, defaultValue) {
-    return (properties !== undefined)
-        ? (properties.hasOwnProperty(propertyToFind)
-            ? properties[propertyToFind] : defaultValue)
-                : defaultValue;
-}
-
 function shadowbox(properties) {
 
     $('body').append("<div class='shadow-overlay'></div>");
-    let shadow = $('.shadow-overlay');
+    shadow = $('.shadow-overlay');
     overlaycss = getOverlaycss(properties);
     shadow.css(overlaycss);
 
@@ -35,14 +30,41 @@ function shadowbox(properties) {
 
         $(elem).css(defaultcss).hide();
         $(clazz).on('click', () => {
+            active = elem;
             shadow.toggle();
+            $(elem).css(Object.assign(getCenterPosition(elem),
+                { 'z-index': overlaycss['z-index'] + 1 }))
+                .toggle();
 
-            let elemcss = Object.assign(getPosition(elem),
-                { 'z-index': overlaycss['z-index'] + 1 });
-            $(elem).css(elemcss)
+            if(closeable === undefined) {
+                $('body').append("<span class='shadow-close'>x</span>");
+                closeable = $('.shadow-close');
+
+                $('body').on('click', '.shadow-close', () => close());
+            }
+
+            closeable.css(Object.assign(defaultcss,
+                getClosePosition(elem)))
                 .toggle();
         });
     });
+
+    // $(window).resize(()=> {
+    //     $shadowContent.css(position(properties.display));
+    // });
+}
+
+function close() {
+    $(active).toggle();
+    $(shadow).toggle();
+    $(closeable).toggle();
+}
+
+function getOrDefault(properties, propertyToFind, defaultValue) {
+    return (properties !== undefined)
+        ? (properties.hasOwnProperty(propertyToFind)
+            ? properties[propertyToFind] : defaultValue)
+        : defaultValue;
 }
 
 function getOverlaycss(properties) {
@@ -53,15 +75,22 @@ function getOverlaycss(properties) {
     return Object.assign(defaultoverlaycss, {
         'background': background,
         '-ms-filter': 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + msopacity +')',
-        filter: 'alpha(opacity=' + msopacity +')',
+        'filter': 'alpha(opacity=' + msopacity +')',
         'opacity': opacity,
         'z-index': zIndex
     });
 }
 
-function getPosition(selector) {
+function getCenterPosition(selector) {
     return {
         'top': ($(document).height() - $(selector).height()) / 2 + 'px',
         'left': ($(document).width() - $(selector).width()) / 2 + 'px'
     };
+}
+
+function getClosePosition(selector) {
+    return {
+        'top': ((($(document).height() - $(selector).height()) / 2 ) - offset) + 'px',
+        'left': ($(document).width() / 2) + (($(selector).width() / 2) + offset) + 'px'
+    }
 }
