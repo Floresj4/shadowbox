@@ -49,9 +49,12 @@ function shadowbox(properties) {
         });
     });
 
-    // $(window).resize(()=> {
-    //     $shadowContent.css(position(properties.display));
-    // });
+    $(window).resize(()=> {
+        if(active !== undefined) {
+            $(active).css(getCenterPosition(active));
+            $(closeable).css(getClosePosition(active));
+        }
+    });
 }
 
 function close() {
