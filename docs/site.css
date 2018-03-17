@@ -50,3 +50,7 @@ pre code {
     z-index: 25;
     cursor: pointer;
 }
+
+.notes {
+    list-style:none;
+}

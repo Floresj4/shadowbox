@@ -21,22 +21,37 @@
 
 		<div class="row">
 			<div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2'>
-				<h3>shadowbox.js</h3>
+				<h3>shadowbox-jf.js</h3>
 				<p>
-					A Javascript library providing simple shadow boxing functionality.  shadowbox.js requires
+					A Javascript library providing simple shadow boxing functionality.  shadowbox-jf requires
 					jquery and a valid selector &ndash; the content to be shadowed should exist on the page
 					with a default css display value of none.
 				</p>
-				<ul>
-					<li>to avoid shadowbox content from flashing away on page load, style attributes for each
-					item to be displayed should be set display:none</li>
-				</ul>
 			</div>
 		</div>
 
 		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+				<h4>Installation</h4>
+				<p>shadowbox-jf is available via Node Package Manager (npm) <pre><code>npm install shadowbox-jr --save</code></pre> or downloading the js file from
+				<a href="https://github.com/Floresj4/shadowbox">github</a> directly.
+				</p>
+			</div>
+		</div>
+		<div class="row">
 			<div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2'>
 				<h4>Usage</h4>
+				<p>shadowbox-jf uses an attribute placed on the container intended to diplay with a value corresponding
+				to the selector to used to trigger the display event.  In the example below, <code>shadowbox='open-me'</code> placed on
+				the teapot-container indicates that it will have shadowbox functionality attached to it and an element containing
+				<em>open-me</em> will be used to interact with the container.</p>
+
+				<h5>Notes</h5>
+				<ul class="notes">
+					<li>To avoid shadowbox content from flashing away on page load, style attributes for each
+						item to be displayed should be set <code>display:none</code></li>
+				</ul>
+
 				<pre><code>
 &lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"&gt;&lt;/script&gt;
 &lt;script type='text/javascript' src="./shadowbox.js"&gt;&lt;/script&gt;
@@ -49,31 +64,35 @@ $(function(){
 });
 &lt;/script&gt;
 &lt;body&gt;
-	&lt;div class='teapot-container'
-		 shadowbox="open-me"&gt;
-		&lt;h4&gt;I'm a little teapot&lt;/h4&gt;
-	&lt;/div&gt;
-	&lt;div class='peekaboo-container'
-		 shadowbox="open-me-too"&gt;
-		&lt;h4&gt;Peekaboo&lt;/h4&gt;
-	&lt;/div&gt;
+    &lt;div class='teapot-container'
+        shadowbox="open-me"&gt;
+        &lt;h4&gt;I'm a little teapot&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div class='peekaboo-container'
+        shadowbox="open-me-too"&gt;
+        &lt;h4&gt;Peekaboo&lt;/h4&gt;
+    &lt;/div&gt;
+
+    &lt;button type='button'
+        id='open-button'
+        class='btn btn-default btn-centered open-me'&gt;I'm a little tea pot.&lt;/button&gt;
+
+    &lt;button type='button'
+        id='open-button'
+        class='btn btn-default btn-centered open-me-too'&gt;Peekaboo.&lt;/button&gt;
 &lt;/body&gt;
 				</code></pre>
 			</div>
 		</div>
 
-		<div class='row form-group'>
-			<div class="col-xs-10 col-xs-offset-1">
+		<div class='row '>
+			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
 				<button type='button'
 					id='open-button'
-					class='btn btn-default btn-centered open-me'>I'm a little tea pot.</button>
-			</div>
-		</div>
+					class='btn btn-default open-me'>I'm a little tea pot.</button>
 
-		<div class='row form-group'>
-			<div class="col-xs-10 col-xs-offset-1">
 				<button type='button'
-						class='btn btn-default btn-centered open-me-too'>Peekaboo</button>
+						class='btn btn-default open-me-too'>Peekaboo</button>
 			</div>
 		</div>
 
