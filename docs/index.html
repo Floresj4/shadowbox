@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Simple Shadowbox</title>
+	<title>shadowbox-jf</title>
 	<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
 	<link rel="stylesheet" type="text/css" href="site.css" />
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
@@ -21,11 +21,10 @@
 
 		<div class="row">
 			<div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2'>
-				<h3>shadowbox-jf.js</h3>
+				<h3>shadowbox-jf</h3>
 				<p>
-					A Javascript library providing simple shadow boxing functionality.  shadowbox-jf requires
-					jquery and a valid selector &ndash; the content to be shadowed should exist on the page
-					with a default css display value of none.
+					A Javascript library providing simple shadow boxing functionality, shadowbox-jf only
+					requires jquery and a valid selector.
 				</p>
 			</div>
 		</div>
@@ -68,34 +67,31 @@ $(function(){
         shadowbox="open-me"&gt;
         &lt;h4&gt;I'm a little teapot&lt;/h4&gt;
     &lt;/div&gt;
-    &lt;div class='peekaboo-container'
-        shadowbox="open-me-too"&gt;
-        &lt;h4&gt;Peekaboo&lt;/h4&gt;
-    &lt;/div&gt;
 
     &lt;button type='button'
         id='open-button'
         class='btn btn-default btn-centered open-me'&gt;Open me&lt;/button&gt;
 
-    &lt;button type='button'
-        id='open-button'
-        class='btn btn-default btn-centered open-me-too'&gt;Open me too&lt;/button&gt;
 &lt;/body&gt;
 				</code></pre>
 			</div>
 		</div>
 
 		<div class='row '>
+
 			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-				<button type='button'
-					id='open-button'
-					class='btn btn-default open-me-1'>Open me (1)</button>
+				<h4>Examples</h4>
+				<div class="examples">
+					<button type='button'
+						id='open-button'
+						class='btn btn-default open-me-1'>Open me (1)</button>
 
-				<button type='button'
-						class='btn btn-default open-me-2'>Open me (2)</button>
+					<button type='button'
+							class='btn btn-default open-me-2'>Open me (2)</button>
 
-				<button type="button"
-						class="btn btn-default open-me-3">Open me (3)</button>
+					<button type="button"
+							class="btn btn-default open-me-3">Open me (3)</button>
+				</div>
 			</div>
 		</div>
 

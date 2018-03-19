@@ -49,6 +49,11 @@ pre code {
     background-color:#fff;
 }
 
+.examples {
+    width:325px;
+    margin: 0 auto;
+}
+
 .shadow-close {
     font-weight: bolder;
     font-size: 16px;
