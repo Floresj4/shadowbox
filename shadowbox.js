@@ -99,16 +99,5 @@ function getClosePosition(selector) {
         'left': ($(active).position().left + $(active).outerWidth()) + 'px'
     };
 
-    console.log('selector: ' + selector + '\n' +
-        'css-height: ' + $(selector).css('height') + '\n' +
-        'height: ' + $(selector).height() + '\n' +
-        'outer-height: ' +  $(selector).outerHeight() + '\n' +
-        'document-height: ' +  $(document).height() + '\n' +
-        'document-outer-height: ' +  $(document).outerHeight() + '\n' +
-        'selector-left: ' +  $(selector).position().left + '\n' +
-        'selector-top: ' +  $(selector).position().top + '\n' +
-        'active-top: ' + $(active).position().top + '\n' +
-        'width: ' +  $(selector).css('width'));
-
     return pos;
 }
