@@ -45,8 +45,9 @@ pre code {
 }
 
 .lorem-container {
-    width:450px;
-    background-color:#fff;
+    width: 450px;
+    background-color: #fff;
+    padding: 10px;
 }
 
 .examples {
@@ -60,6 +61,7 @@ pre code {
     color: #000;
     z-index: 25;
     cursor: pointer;
+    padding:5px;
 }
 
 .notes {

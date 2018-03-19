@@ -95,13 +95,9 @@ function getCenterPosition(selector) {
 
 function getClosePosition(selector) {
     let pos = {
-        'top': ((($(document).height() - $(selector).outerHeight()) / 2 ) ) + 'px',
-        'left': ($(document).width() / 2) + (($(selector).outerWidth() / 2) ) + 'px'
+        'top': ($(active).position().top) + 'px',
+        'left': ($(active).position().left + $(active).outerWidth()) + 'px'
     };
-    console.log(selector + ' ' +
-        $(selector).css('box-sizing') + ' ' +
-        $(selector).css('height') + ' ' +
-        $(selector).css('width'));
 
     return pos;
 }
