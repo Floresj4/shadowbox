@@ -4,6 +4,7 @@ var active;
 var closeable;
 var offset = 15;
 var overlaycss;
+
 var defaultcss = {
     display: 'none',
     position: 'absolute'
@@ -61,6 +62,7 @@ function close() {
     $(active).toggle();
     $(shadow).toggle();
     $(closeable).toggle();
+    active = null;
 }
 
 function getOrDefault(properties, propertyToFind, defaultValue) {
@@ -86,14 +88,20 @@ function getOverlaycss(properties) {
 
 function getCenterPosition(selector) {
     return {
-        'top': ($(document).height() - $(selector).height()) / 2 + 'px',
-        'left': ($(document).width() - $(selector).width()) / 2 + 'px'
+        'top': ($(document).height() - $(selector).outerHeight()) / 2 + 'px',
+        'left': ($(document).width() - $(selector).outerWidth()) / 2 + 'px'
     };
 }
 
 function getClosePosition(selector) {
-    return {
-        'top': ((($(document).height() - $(selector).height()) / 2 ) - offset) + 'px',
-        'left': ($(document).width() / 2) + (($(selector).width() / 2) + offset) + 'px'
-    }
+    let pos = {
+        'top': ((($(document).height() - $(selector).outerHeight()) / 2 ) ) + 'px',
+        'left': ($(document).width() / 2) + (($(selector).outerWidth() / 2) ) + 'px'
+    };
+    console.log(selector + ' ' +
+        $(selector).css('box-sizing') + ' ' +
+        $(selector).css('height') + ' ' +
+        $(selector).css('width'));
+
+    return pos;
 }
